@@ -1,0 +1,58 @@
+* {
+    margin: 0%;
+    padding: 0%
+}
+
+@font-face {
+    font-family: 'cascadia';
+    src: URL('./CascadiaMono-Regular.ttf') format('truetype');
+}
+
+body {
+    background-color: #dfc5ed;
+    font-family: 'cascadia';
+}
+
+.toplink {
+    background-color: #fffcf0;
+    border-bottom: 5px solid grey;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.mainpage {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: black;
+    font-size: larger
+}
+
+.linkbox {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+}
+
+.centbox {
+    background-color: #fffcf0;
+    width:  80%;
+    margin-left: 10%;
+    height: 100%;
+}
+
+a:link {
+    color: red;
+    background-color: transparent;
+}
+
+li {
+    margin-left: 30px;
+}
+
+hr {
+    margin: 10px;
+}
