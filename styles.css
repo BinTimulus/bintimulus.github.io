@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: 'cascadia';
-    src: URL('./CascadiaMono-Regular.ttf') format('truetype');
+    src: URL('/CascadiaMono-Regular.ttf') format('truetype');
 }
 
 body {
