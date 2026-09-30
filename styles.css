@@ -1,6 +1,6 @@
 * {
     margin: 0%;
-    padding: 0%
+    padding: 0%;
 }
 
 @font-face {
@@ -40,6 +40,7 @@ body {
 .centbox {
     background-color: #fffcf0;
     width:  80%;
+    padding: 5px;
     margin-left: 10%;
     height: 100%;
 }
@@ -60,4 +61,19 @@ li {
 
 hr {
     margin: 10px;
+}
+
+.Ari_239 {
+    width: 90%;
+    padding: 5px;
+    margin-left: 2%;
+    margin-bottom: 10px;
+    background-color: rgb(214, 255, 132);
+}
+.TheBin {
+    width: 90%;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-left: 8%;
+    background-color: pink;
 }
