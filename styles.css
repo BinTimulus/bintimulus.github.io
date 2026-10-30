@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: 'cascadia';
-    src: URL('/CascadiaMono-Regular.ttf') format('truetype');
+    src: URL('/Cascadia.ttf') format('truetype');
 }
 
 body {
@@ -53,6 +53,42 @@ a:link {
 a:visited {
     color: rgb(210, 0, 0);
     background-color: transparent;
+}
+
+a.footnote {
+    color: red;
+    -webkit-transition: all 0s ease;
+    -moz-transition: all 0s ease;
+    -o-transition: all 0s ease;
+    transition: all 0s ease;
+}
+
+a.footnote span{
+    color: black;
+    z-index: -1;
+    opacity: 0;
+    position: fixed;
+    left: 15px; 
+    bottom: 20px;
+    margin-left: 0px;
+    margin-right: 18px;
+    padding:14px 20px;
+    border:2px solid grey;
+    width: 30%;
+    background-color: #fffcf0;
+    -webkit-transition: all 0s ease;
+    -moz-transition: all 0s ease;
+    -o-transition: all 0s ease;
+    transition: all 0s ease;
+}
+
+a.footnote:hover span{
+    z-index: 9;
+    opacity: 1;
+    -webkit-transition: all 0s ease;
+    -moz-transition: all 0s ease;
+    -o-transition: all 0s ease;
+    transition: all 0s ease;
 }
 
 li {
