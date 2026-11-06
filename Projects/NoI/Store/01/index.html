@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet", href="/styles.css">
+  <link rel="icon" type="image/x-icon" href="/Bimage.png">
+  <title>NoI 01 - The Fourier Transform</title>
+</head>
+
+<body>
+  <div id="LINKBOX"></div>
+  <script src="/head.js"></script>
+  <div class="centbox">
+    <h3><a href="/Projects/NoI/">Nuggets of Idiocy</a></h3>
+    <p>
+      NoI 01 - 2026 NOV 06<br>
+      Math Gore: Why the Fourier Transform Works
+    </p>
+    <hr>
+    <p>
+      Let there be a signal function <i class="mathexp">g(t)</i> returning its magnitude at each <i class="mathexp">t</i>.<br><br>
+      Since all functions can be expressed as an infinite sum of cosines and sines of various magnitudes and frequencies <i>(something something Joseph Fourier)</i><a onmouseenter="footnoteshow('<i>Not actually all, but whatever.</i>')" onmouseleave="footnotereset()"><sup>*</sup></a>, <i class="mathexp">g(t)</i> can be rewritten as the infinite sum:<br>
+      <table class="mathexp">
+        <tr><td>g(t) = </td><td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>(m<sub>fr</sub>cos(2&pi;ft) + m<sub>fi</sub>sin(2&pi;ft)) df</td></tr>
+      </table>
+      Where <i class="mathexp">m<sub>fr</sub></i>, <i class="mathexp">m<sub>fi</sub></i> represent the magnitudes of the cosine and sine at each frequency <i class="mathexp">f</i>.<br><br>
+      Then, let the Fourier Transform of <i class="mathexp">g(t)</i>, <i class="mathexp">&gcirc;(&xi;)</i>, returning the phase-magnitude of <i class="mathexp">g(t)</i> for each <i class="mathexp">&xi;</i> be:
+      <table class="mathexp">
+        <tr><td>&gcirc;(&xi;) = </td><td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>g(t)e<sup>-i2&pi;&xi;t</sup>dt</td></tr>
+      </table>
+      First, substitute <i class="mathexp">g(t)</i> in <i class="mathexp">&gcirc;(&xi;)</i> with the infinite periodic sum and rewrite <i class="mathexp">e<sup>-i2&pi;&xi;t</sup></i> with Euler's identity <i>(<span  class="mathexp">e<sup>i&theta;</sup> &equiv; cos &theta; + isin &theta;</span>)</i>, yielding:<br>
+      <table class="mathexp">
+        <tr><td>&gcirc;(&xi;) = </td><td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>(</td><td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div><td>(m<sub>fr</sub>cos(2&pi;ft) + m<sub>fi</sub>sin(2&pi;ft)) df)(cos(-2&pi;&xi;t) + isin(-2&pi;&xi;t))dt</td></tr>
+      </table>
+      <table class="mathexp">
+        <tr><td>&gcirc;(&xi;) = </td><td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>(</td><td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>(m<sub>fr</sub>cos(2&pi;ft) + m<sub>fi</sub>sin(2&pi;ft)) (cos(-2&pi;&xi;t) + isin(-2&pi;&xi;t)) df)dt</td></tr>
+      </table>
+      Swapping the order of integration:<br>
+      <table class="mathexp">
+        <tr><td>&gcirc;(&xi;) = </td><td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>(</td><td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>(m<sub>fr</sub>cos(2&pi;ft) + m<sub>fi</sub>sin(2&pi;ft)) (cos(-2&pi;&xi;t) + isin(-2&pi;&xi;t)) dt)df</td></tr>
+      </table>
+      Multiplying the brackets out, we then get:<br>
+      <table class="mathexp">
+        <tr><td>&gcirc;(&xi;) = </td><td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>(</td><td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>(m<sub>fr</sub>cos(2&pi;ft)cos(-2&pi;&xi;t) + m<sub>fi</sub>sin(2&pi;ft)cos(-2&pi;&xi;t) + im<sub>fr</sub>cos(2&pi;ft)sin(-2&pi;&xi;t) + im<sub>fi</sub>sin(2&pi;ft)sin(-2&pi;&xi;t)) dt)df</td></tr>
+      </table>
+      Convert <i class="mathexp">cos(-2&pi;&xi;t)</i> and <i class="mathexp">sin(-2&pi;&xi;t)</i> into <i class="mathexp">cos(2&pi;&xi;t)</i> and <i class="mathexp">sin(-2&pi;&xi;t)</i> respectively since <i class="mathexp">cos(-&theta;) &equiv; cos(&theta;)</i> and <i class="mathexp">sin(-&theta;) &equiv; -sin(&theta;)</i>.
+      <table class="mathexp">
+        <tr><td>&gcirc;(&xi;) = </td><td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>(</td><td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>(m<sub>fr</sub>cos(2&pi;ft)cos(2&pi;&xi;t) + m<sub>fi</sub>sin(2&pi;ft)cos(2&pi;&xi;t) - im<sub>fr</sub>cos(2&pi;ft)sin(2&pi;&xi;t) - im<sub>fi</sub>sin(2&pi;ft)sin(2&pi;&xi;t)) dt)df</td></tr>
+      </table>
+      Reason: all <i class="mathexp">cos(&theta;)sin(&theta;)</i> have equal parts positive and negative across infinity, thus:<br>
+      <table class="mathexp">
+        <tr><td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>m<sub>fi</sub>sin(2&pi;ft)cos(2&pi;&xi;t) dt = 0</td>
+        <td>,&#10240;</td>
+        <td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>-im<sub>fr</sub>cos(2&pi;ft)sin(2&pi;&xi;t) dt = 0</td>
+        <td>; &xi;, f &isin; &reals;</td></tr>
+      </table>
+      Hence rewrite:<br>
+      <table class="mathexp">
+        <tr><td>&gcirc;(&xi;) = </td><td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>(</td><td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>(m<sub>fr</sub>cos(2&pi;ft)cos(2&pi;&xi;t) - im<sub>fi</sub>sin(2&pi;ft)sin(2&pi;&xi;t)) dt)df</td></tr>
+      </table>
+      Again reason: only for <i class="mathexp">f = &xi;</i> are <i class="mathexp">m<sub>fr</sub>cos(2&pi;ft)cos(2&pi;&xi;t)</i> and <i class="mathexp">m<sub>fi</sub>sin(2&pi;ft)sin(2&pi;&xi;t)</i> positive across all <i class="mathexp">t</i> as:<br>
+      For <i class="mathexp">f = &xi;</i>, <i class="mathexp">m<sub>fr</sub>cos(2&pi;ft)cos(2&pi;&xi;t) &equiv; m<sub>fr</sub>cos<sup>2</sup>(2&pi;&xi;t)</i> and <i class="mathexp">m<sub>fi</sub>sin(2&pi;ft)sin(2&pi;&xi;t) &equiv; m<sub>fi</sub>sin<sup>2</sup>(2&pi;&xi;t)</i>, and <i class="mathexp">x<sup>2</sup> &ge; 0; x &isin; &reals;</i>.<br><br>
+      Else for <i class="mathexp">f &NotEqual; &xi;</i>, <i class="mathexp">m<sub>fr</sub>cos(2&pi;ft)cos(2&pi;&xi;t)</i> and <i class="mathexp">m<sub>fi</sub>sin(2&pi;ft)sin(2&pi;&xi;t)</i> have equal parts positive and negative across infinity, hence:<br>
+      <table class="mathexp">
+        <tr><td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>m<sub>fr</sub>cos(2&pi;ft)cos(2&pi;&xi;t) dt = 0</td>
+        <td>,&#10240;</td>
+        <td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>m<sub>fi</sub>sin(2&pi;ft)sin(2&pi;&xi;t) dt = 0</td>
+        <td>; &xi; &NotEqual; f </td></tr>
+      </table>
+      Thus rewrite again, eliminating the integral across <i class="mathexp">f</i> save for <i class="mathexp">f = &xi;</i>:<br>
+      <table class="mathexp">
+        <tr><td>&gcirc;(&xi;) = </td><td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>(m<sub>&xi;r</sub>cos<sup>2</sup>(2&pi;&xi;t) - im<sub>&xi;i</sub>sin<sup>2</sup>(2&pi;&xi;t)) dt</td></tr>
+      </table>
+      <table class="mathexp">
+        <tr><td>&gcirc;(&xi;) = m<sub>&xi;r</sub></td><td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>cos<sup>2</sup>(2&pi;&xi;t) dt - im<sub>&xi;i</sub></td><td><div><table><tr><td>&infin;</td></tr><tr><td>&int;</td></tr><tr><td>-&infin;</td></tr></table></div></td><td>sin<sup>2</sup>(2&pi;&xi;t) dt<sub>&#10240;</sub></td></tr>
+      </table>
+      Obviously, since the integrands are both positive across all <i class="mathexp">t</i>, the infinite bounds of integration will result in an infinite result. So we will simply substitute the bounds with <i class="mathexp">(0, T)</i>, where <i class="mathexp">T</i> is a Very Large Value<sup>TM</sup> to find a general approximate result:<br>
+      <table class="mathexp">
+        <tr><td>&gcirc;(&xi;) &approx; m<sub>&xi;r</sub></td><td><div><table><tr><td>T</td></tr><tr><td>&int;</td></tr><tr><td>0</td></tr></table></div></td><td>cos<sup>2</sup>(2&pi;&xi;t) dt - im<sub>&xi;i</sub></td><td><div><table><tr><td>T</td></tr><tr><td>&int;</td></tr><tr><td>0</td></tr></table></div></td><td>sin<sup>2</sup>(2&pi;&xi;t) dt<sub>&#10240;</sub></td></tr>
+      </table>
+      <table class="mathexp">
+        <tr><td>&gcirc;(&xi;) &approx; m<sub>&xi;r</sub></td><td>(</td><td><div><table><tr><td>T</td></tr><tr><td style="border-top: 1px solid black;">2</td></tr></table></div></td><td>)</td><td> - im<sub>&xi;i</sub></td><td>(</td><td><div><table><tr><td>T</td></tr><tr><td style="border-top: 1px solid black;">2</td></tr></table></div></td><td>)</td></tr>
+      </table>
+      <table class="mathexp">
+        <tr><td>&gcirc;(&xi;) &approx;</td><td>(</td><td><div><table><tr><td>T</td></tr><tr><td style="border-top: 1px solid black;">2</td></tr></table></div></td><td>)</td><td>(m<sub>&xi;r</sub> - im<sub>&xi;i</sub>)</td></tr>
+      </table>
+      And there you go, you get the cosine and sine magnitudes <i>(<span class="mathexp">m<sub>&xi;r</sub></span> and <span class="mathexp">m<sub>&xi;i</sub></span>)</i> for the input frequency <i class="mathexp">&xi;</i> back <i>(with a known multiplier which can be factored out)</i> as a complex number, meaning this formulation of the FT works<a onmouseenter="footnoteshow('<i>This was absolute HTML gore, kill me.</i>')" onmouseleave="footnotereset()"><sup>+</sup></a>.
+      <hr>
+      <i>'How is this useful?'</i><br>
+      By knowing how to break any sound (which is essentially the <span class="mathexp">g(t)</span> I messed around with) down back into known functions, we essentially get the ability to 'make more of the sound' algorithmically. This means that we can speed up videos without making people sound super high pitched <i>(by pitching them back down)</i>, or we can make VOCALOID <i>(and UTAU<a onmouseenter="footnoteshow('<i>\'#IPreferPepsi\'</i><br>No but seriously UTAU being free clears hands down.')" onmouseleave="footnotereset()"><sup>^</sup></a>)</i> music. Or even, you can make autotune from this.<br><br>
+      But then again. This formulation of the FT isn't the one computers use <i>(because a sound sample is neither continuous nor infinite, and computers do trigonometry too slowly)</i>. Search the Fast Fourier Transform up if you want to figure that one out.<br><br>
+      And that's all the yap from me bye.
+      <hr>
+      <a href="">Tumblr Mirror</a>
+      <br><br><br>
+    </p>
+  </div>
+  <br><br><br>
+  <div id="footcontainer"></div>
+</body>
+
+<script src="/handyjs.js"></script>
+
+</html>

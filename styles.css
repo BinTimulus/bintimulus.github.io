@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: 'cascadia';
-    src: URL('/Cascadia.ttf') format('truetype');
+    src: URL('/cascadia.ttf') format('truetype');
 }
 
 body {
@@ -45,28 +45,20 @@ body {
     height: 100%;
 }
 
-a:link {
+a {
     color: red;
-    background-color: transparent;
 }
 
 a:visited {
     color: rgb(210, 0, 0);
-    background-color: transparent;
 }
 
-a.footnote {
-    color: red;
-    -webkit-transition: all 0s ease;
-    -moz-transition: all 0s ease;
-    -o-transition: all 0s ease;
-    transition: all 0s ease;
-}
-
-a.footnote span{
-    color: black;
+div #footcontainer{
     z-index: -1;
-    opacity: 0;
+}
+
+span.popup {
+    color: black;
     position: fixed;
     left: 15px; 
     bottom: 20px;
@@ -74,21 +66,8 @@ a.footnote span{
     margin-right: 18px;
     padding:14px 20px;
     border:2px solid grey;
-    width: 30%;
+    max-width: 30%;
     background-color: #fffcf0;
-    -webkit-transition: all 0s ease;
-    -moz-transition: all 0s ease;
-    -o-transition: all 0s ease;
-    transition: all 0s ease;
-}
-
-a.footnote:hover span{
-    z-index: 9;
-    opacity: 1;
-    -webkit-transition: all 0s ease;
-    -moz-transition: all 0s ease;
-    -o-transition: all 0s ease;
-    transition: all 0s ease;
 }
 
 li {
@@ -112,4 +91,10 @@ hr {
     margin-bottom: 10px;
     margin-left: 8%;
     background-color: pink;
+}
+
+.mathexp{
+font-family: 'Times New Roman', Times, serif;
+font-style: normal;
+font-weight: 200;
 }
